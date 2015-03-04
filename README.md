@@ -6,7 +6,7 @@ renames tables or run arbitrary SQL and Python code.
 
 # Usage
 
-* Install 
+* Install the current version from github
 
 * Add 'migration_sniffer' to INSTALLED_APPS.
 
