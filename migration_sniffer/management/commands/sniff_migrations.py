@@ -1,20 +1,12 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from optparse import make_option
-from collections import OrderedDict
 from importlib import import_module
-import itertools
-import traceback
-
 from django.apps import apps
 from django.core.management import call_command
 from django.core.management.base import BaseCommand, CommandError
-from django.core.management.color import no_style
-from django.core.management.sql import custom_sql_for_model, emit_post_migrate_signal, emit_pre_migrate_signal
-from django.db import connections, router, transaction, DEFAULT_DB_ALIAS
-from django.db.migrations.executor import MigrationExecutor
-from django.db.migrations.loader import MigrationLoader, AmbiguityError
-from django.db.migrations.state import ProjectState
+from django.db import connections, DEFAULT_DB_ALIAS
+from django.db.migrations.loader import MigrationLoader
 from django.db.migrations.autodetector import MigrationAutodetector
 
 from django.db.migrations.operations import (RunSQL, RunPython, RemoveField, 
