@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-from optparse import make_option
 from importlib import import_module
 from django.apps import apps
 from django.core.management import call_command
@@ -18,13 +17,22 @@ from django.utils.module_loading import module_has_submodule
 
 
 class Command(BaseCommand):
-    option_list = BaseCommand.option_list + (
-        make_option('--database', action='store', dest='database',
-            default=DEFAULT_DB_ALIAS, help='Nominates a database to synchronize. '
-                'Defaults to the "default" database.'),
-        make_option('--all', '-a', action='store_true', dest='all', default=False,
-            help='Also show applied risky migrations'),
-    )
+
+    def add_arguments(self, parser):
+        parser.add_argument(
+            '--database',
+            action='store',
+            dest='database',
+            help='Nominates a database to synchronize. Defaults to the "default" database.',
+            default='default',
+        )
+        parser.add_argument(
+            '--all',
+            action='store_true',
+            dest='all',
+            help='Also show applied risky migrations',
+            default=False,
+        )
 
     help = "Print a list of risky unapplied migrations"
     args = "[app_label] [migration_name]"
