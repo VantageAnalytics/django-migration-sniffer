@@ -10,9 +10,9 @@ def read(*path):
 
 
 setup(
-    name='migration sniffer',
+    name='migrations sniffer',
     version=VERSION,
-    description=('django migration sniffer warns users about migrations with '
+    description=('django migrations sniffer warns users about migrations with '
                  'dangerous operations such as dropping columns and tables.'),
     license='BSD',
     author='David Vincelli',

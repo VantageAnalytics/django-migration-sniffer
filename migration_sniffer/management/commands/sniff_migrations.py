@@ -41,7 +41,7 @@ class Command(BaseCommand):
         db = options.get('database')
         connection = connections[db]
 
-        # If they asked for a migration listing, quit main execution flow and show it
+        # If they asked for a migrations listing, quit main execution flow and show it
         show_all = options.get("all", False)
         return self.show_risky_migration_list(connection, args, show_all)
 
